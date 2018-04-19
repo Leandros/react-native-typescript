@@ -1,0 +1,43 @@
+{
+  "name": "FooBar",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest"
+  },
+  "dependencies": {
+    "npm": "^5.8.0",
+    "react": "16.3.1",
+    "react-native": "0.55.3"
+  },
+  "devDependencies": {
+    "@types/jest": "^22.2.3",
+    "babel-jest": "^22.4.3",
+    "babel-preset-react-native": "^4.0.0",
+    "jest": "^22.4.3",
+    "react-test-renderer": "16.3.1",
+    "ts-jest": "^22.4.4",
+    "typescript": "^2.8.1"
+  },
+  "jest": {
+    "preset": "react-native",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.jsx?$": "<rootDir>/node_modules/babel-jest",
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testMatch": [
+      "**/__tests__/*.+(ts|tsx|js)"
+    ],
+    "globals": {
+      "ts-jest": {
+        "useBabelrc": true
+      }
+    }
+  }
+}
