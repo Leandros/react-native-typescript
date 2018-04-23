@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
+    "test": "jest",
+    "lint": "tslint --project ."
   },
   "dependencies": {
     "npm": "^5.8.0",
@@ -12,13 +13,25 @@
     "react-native": "0.55.3"
   },
   "devDependencies": {
+    "@types/enzyme": "^3.1.10",
     "@types/jest": "^22.2.3",
+    "@types/react": "^16.3.11",
+    "@types/react-native": "^0.55.4",
+    "@types/react-test-renderer": "^16.0.1",
     "babel-jest": "^22.4.3",
     "babel-preset-react-native": "^4.0.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "husky": "^0.14.3",
     "jest": "^22.4.3",
+    "prettier": "1.12.1",
+    "react-addons-test-utils": "^15.6.2",
+    "react-dom": "^16.3.2",
     "react-test-renderer": "16.3.1",
     "ts-jest": "^22.4.4",
-    "typescript": "^2.8.1"
+    "tslint": "^5.9.1",
+    "typescript": "^2.7.2",
+    "yarn": "^1.6.0"
   },
   "jest": {
     "preset": "react-native",
@@ -28,16 +41,41 @@
       "js"
     ],
     "transform": {
-      "^.+\\.jsx?$": "<rootDir>/node_modules/babel-jest",
-      "^.+\\.tsx?$": "ts-jest"
+      "^.+\\.(js)$": "<rootDir>/node_modules/babel-jest",
+      "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
     "testMatch": [
       "**/__tests__/*.+(ts|tsx|js)"
     ],
+    "testPathIgnorePatterns": [
+      "\\.snap$",
+      "<rootDir>/node_modules/",
+      "<rootDir>/lib/"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.tsx"
+    ],
+    "setupTestFrameworkScriptFile": "<rootDir>/setupTests.js",
+    "cacheDirectory": ".jest/cache",
     "globals": {
       "ts-jest": {
         "useBabelrc": true
       }
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "tabWidth": 2,
+    "useTabs": false,
+    "semi": true,
+    "trailingComma": "es5",
+    "bracketSpacing": true,
+    "singleQuote": false,
+    "parser": "typescript"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "./precommit.sh"
     }
   }
 }

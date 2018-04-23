@@ -22,6 +22,11 @@ DerivedData
 *.xcuserstate
 project.xcworkspace
 
+# Ctags
+tags
+tags.lock
+tags.temp
+
 # Android/IntelliJ
 #
 build/
@@ -35,6 +40,12 @@ local.properties
 node_modules/
 npm-debug.log
 yarn-error.log
+
+# TypeScript
+lib/
+
+# Jest
+.jest/
 
 # BUCK
 buck-out/
